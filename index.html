@@ -6,35 +6,47 @@
 <title>دعوت‌نامه عروسی | محمد سجاد و زهرا</title>
 <style>
 *{box-sizing:border-box}
-html,body{margin:0;padding:0;width:100%;height:100%;overflow-x:hidden;font-family:'B Nazanin','Tahoma','Arial',sans-serif}
+html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;font-family:'B Nazanin','Tahoma','Arial',sans-serif}
 
 body{
-  background:#0a0a0a;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  min-height:100vh;
+  background:#000;
 }
 
 .page{
-  width:100%;
-  max-width:100vw;
+  width:100vw;
   height:100vh;
   display:flex;
   flex-direction:column;
-  background:linear-gradient(135deg, #f5e6d3 0%, #e8d4bc 50%, #f0dcc8 100%);
+  align-items:center;
+  justify-content:center;
   position:relative;
   overflow:hidden;
 }
 
-/* پس‌زمینه تزئینی */
-.bg-decoration{
+/* عکس پس‌زمینه */
+.bg-image{
   position:absolute;
-  inset:0;
-  pointer-events:none;
-  background-image:
-    radial-gradient(circle at 20% 50%, rgba(212,175,110,.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(212,175,110,.1) 0%, transparent 50%);
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-image:url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&h=900&fit=crop');
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  z-index:0;
+}
+
+/* لایه‌ی تاریکی برای خوانایی */
+.overlay{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:linear-gradient(135deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.25) 50%, rgba(0,0,0,.35) 100%);
+  z-index:1;
 }
 
 /* لایه‌ی درخشان */
@@ -42,9 +54,9 @@ body{
   position:absolute;
   inset:0;
   pointer-events:none;
-  background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.2) 50%,transparent 70%);
+  background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.1) 50%,transparent 70%);
   animation:shine 8s ease-in-out infinite;
-  z-index:1;
+  z-index:2;
 }
 
 @keyframes shine{
@@ -55,126 +67,97 @@ body{
 .content{
   position:relative;
   z-index:10;
-  display:flex;
-  flex-direction:column;
-  height:100%;
-  width:100%;
-  justify-content:space-between;
-  padding:30px 20px;
   text-align:center;
-}
-
-/* بخش بالا - عنوان */
-.header{
-  flex:0.4;
   display:flex;
   flex-direction:column;
   justify-content:center;
-  gap:15px;
+  align-items:center;
+  height:100%;
+  width:100%;
+  padding:40px 30px;
+}
+
+/* عنوان */
+.header{
+  margin-bottom:60px;
+  animation:slideDown 1s ease-out;
 }
 
 .title{
-  font-size:28px;
+  font-size:36px;
   font-weight:bold;
-  color:#8b6f47;
-  margin:0;
+  color:#f4e4c1;
+  margin:0 0 12px 0;
   letter-spacing:2px;
-  text-shadow:2px 2px 4px rgba(255,255,255,.5);
+  text-shadow:3px 3px 8px rgba(0,0,0,.8);
 }
 
 .subtitle{
   font-size:16px;
-  color:#a0845f;
+  color:#d4a574;
   margin:0;
   font-weight:300;
-  letter-spacing:0.5px;
+  letter-spacing:0.8px;
+  text-shadow:2px 2px 5px rgba(0,0,0,.7);
 }
 
-/* بخش وسط - عکس و نام‌ها */
-.middle{
-  flex:1.2;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  gap:20px;
-  padding:20px 0;
-}
-
-.couple-images{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:20px;
-  height:280px;
-  animation:slideUp 1s ease-out;
-}
-
-.image-container{
-  position:relative;
-  width:120px;
-  height:220px;
-  border-radius:15px;
-  overflow:hidden;
-  box-shadow:0 15px 40px rgba(0,0,0,.3);
-  border:3px solid rgba(212,175,110,.5);
-}
-
-.image-container img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  filter:brightness(1.1);
-  transition:transform 0.5s ease;
-}
-
-.image-container:hover img{
-  transform:scale(1.05);
-}
-
-.names{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  align-items:center;
-}
-
-.groom{
-  font-size:48px;
-  font-weight:bold;
-  color:#6b4c2f;
-  margin:0;
-  text-shadow:2px 2px 6px rgba(255,255,255,.4);
-  letter-spacing:1px;
-  animation:fadeInDown 0.8s ease-out;
-}
-
-.and{
-  font-size:24px;
-  color:#8b6f47;
-  margin:0;
-  font-weight:300;
-  animation:fadeIn 1s ease-out 0.3s both;
-}
-
-.bride{
-  font-size:48px;
-  font-weight:bold;
-  color:#c17a6f;
-  margin:0;
-  text-shadow:2px 2px 6px rgba(255,255,255,.4);
-  letter-spacing:1px;
-  animation:fadeInUp 0.8s ease-out 0.6s both;
-}
-
-@keyframes fadeInDown{
+@keyframes slideDown{
   from{
     opacity:0;
-    transform:translateY(-30px);
+    transform:translateY(-40px);
   }
   to{
     opacity:1;
     transform:translateY(0);
+  }
+}
+
+/* نام‌های بزرگ */
+.names{
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+  align-items:center;
+  margin:60px 0;
+}
+
+.groom{
+  font-size:56px;
+  font-weight:bold;
+  color:#e8d4b8;
+  margin:0;
+  text-shadow:3px 3px 10px rgba(0,0,0,.8);
+  letter-spacing:2px;
+  animation:fadeInLeft 1s ease-out;
+}
+
+.and{
+  font-size:24px;
+  color:#d4a574;
+  margin:0;
+  font-weight:300;
+  text-shadow:2px 2px 6px rgba(0,0,0,.7);
+  animation:fadeIn 1s ease-out 0.3s both;
+}
+
+.bride{
+  font-size:56px;
+  font-weight:bold;
+  color:#f0c4b0;
+  margin:0;
+  text-shadow:3px 3px 10px rgba(0,0,0,.8);
+  letter-spacing:2px;
+  animation:fadeInRight 1s ease-out 0.6s both;
+}
+
+@keyframes fadeInLeft{
+  from{
+    opacity:0;
+    transform:translateX(-50px);
+  }
+  to{
+    opacity:1;
+    transform:translateX(0);
   }
 }
 
@@ -183,109 +166,87 @@ body{
   to{opacity:1}
 }
 
-@keyframes fadeInUp{
+@keyframes fadeInRight{
   from{
     opacity:0;
-    transform:translateY(30px);
+    transform:translateX(50px);
   }
   to{
     opacity:1;
-    transform:translateY(0);
+    transform:translateX(0);
   }
 }
 
-@keyframes slideUp{
-  from{
-    opacity:0;
-    transform:translateY(40px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-/* بخش پایین - اطلاعات */
-.footer{
-  flex:0.6;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  gap:15px;
-}
-
+/* اطلاعات */
 .details{
-  background:rgba(139,111,71,.15);
-  border-radius:15px;
-  padding:20px;
+  background:rgba(0,0,0,.5);
+  border-radius:20px;
+  padding:32px 40px;
   border:2px solid rgba(212,175,110,.4);
+  backdrop-filter:blur(10px);
+  margin:40px 0;
+  max-width:600px;
+  box-shadow:0 20px 60px rgba(0,0,0,.6);
 }
 
 .detail-row{
   display:flex;
   justify-content:space-around;
   flex-wrap:wrap;
-  gap:15px;
+  gap:30px;
 }
 
 .detail-item{
   flex:1;
-  min-width:150px;
-  font-size:13px;
+  min-width:140px;
 }
 
 .detail-label{
   font-weight:bold;
-  color:#8b6f47;
+  color:#f4e4c1;
   display:block;
-  margin-bottom:5px;
+  margin-bottom:8px;
   font-size:12px;
   text-transform:uppercase;
-  letter-spacing:0.5px;
+  letter-spacing:1px;
+  text-shadow:1px 1px 3px rgba(0,0,0,.6);
 }
 
 .detail-value{
-  color:#5a3d23;
-  font-size:15px;
+  color:#d4a574;
+  font-size:16px;
   font-weight:500;
+  text-shadow:1px 1px 3px rgba(0,0,0,.5);
 }
 
 /* دکوراسیون */
 .decoration{
-  font-size:28px;
+  font-size:32px;
   margin:0;
-  opacity:0.7;
-  animation:float 3s ease-in-out infinite;
+  opacity:0.8;
+  animation:float 3.5s ease-in-out infinite;
+  letter-spacing:4px;
 }
 
 @keyframes float{
   0%, 100%{transform:translateY(0px)}
-  50%{transform:translateY(-8px)}
+  50%{transform:translateY(-12px)}
 }
 
 /* پیام انتهایی */
-.message{
-  font-size:14px;
-  color:#8b6f47;
-  margin:0;
+.footer-msg{
+  font-size:15px;
+  color:#d4a574;
+  margin:30px 0 0 0;
   font-style:italic;
-  line-height:1.6;
+  line-height:1.8;
+  text-shadow:2px 2px 5px rgba(0,0,0,.7);
 }
 
-/* موبایل - تغییرات */
+/* موبایل */
 @media (max-width:768px){
-  .couple-images{
-    height:220px;
-    gap:15px;
-  }
-  
-  .image-container{
-    width:100px;
-    height:180px;
-  }
-  
   .groom, .bride{
-    font-size:36px;
+    font-size:40px;
   }
   
   .and{
@@ -293,37 +254,39 @@ body{
   }
   
   .title{
-    font-size:24px;
+    font-size:28px;
   }
   
-  .detail-value{
-    font-size:14px;
-  }
-  
-  .content{
-    padding:20px 15px;
+  .details{
+    padding:24px 28px;
+    margin:30px 0;
   }
   
   .detail-row{
     flex-direction:column;
-    gap:12px;
+    gap:16px;
+  }
+  
+  .detail-value{
+    font-size:15px;
+  }
+  
+  .content{
+    padding:30px 20px;
+  }
+  
+  .header{
+    margin-bottom:40px;
+  }
+  
+  .names{
+    margin:40px 0;
   }
 }
 
 @media (max-width:480px){
-  .couple-images{
-    height:180px;
-    gap:12px;
-  }
-  
-  .image-container{
-    width:85px;
-    height:150px;
-    border-radius:10px;
-  }
-  
   .groom, .bride{
-    font-size:28px;
+    font-size:32px;
   }
   
   .and{
@@ -331,11 +294,16 @@ body{
   }
   
   .title{
-    font-size:20px;
+    font-size:24px;
   }
   
   .subtitle{
     font-size:13px;
+  }
+  
+  .details{
+    padding:20px 20px;
+    margin:24px 10px;
   }
   
   .detail-label{
@@ -343,96 +311,92 @@ body{
   }
   
   .detail-value{
-    font-size:13px;
+    font-size:14px;
   }
   
   .decoration{
-    font-size:22px;
+    font-size:24px;
+    letter-spacing:2px;
   }
   
-  .message{
-    font-size:12px;
+  .footer-msg{
+    font-size:13px;
   }
   
   .content{
-    padding:15px 10px;
-    gap:10px;
+    padding:20px 15px;
+    justify-content:space-around;
   }
   
-  .middle{
-    gap:15px;
-    padding:15px 0;
+  .header{
+    margin-bottom:20px;
+  }
+  
+  .names{
+    margin:20px 0;
+    gap:8px;
   }
 }
 
 .hint{
   position:fixed;
-  bottom:10px;
+  bottom:12px;
   left:50%;
   transform:translateX(-50%);
   padding:8px 16px;
   border-radius:999px;
-  background:rgba(35,25,15,.7);
-  color:#faf5f0;
+  background:rgba(0,0,0,.7);
+  color:#d4a574;
   font-size:10px;
-  backdrop-filter:blur(5px);
+  backdrop-filter:blur(8px);
   border:1px solid rgba(212,175,110,.3);
   z-index:20;
+  text-shadow:1px 1px 2px rgba(0,0,0,.6);
+  letter-spacing:0.5px;
 }
 </style>
 </head>
 <body>
   <div class="page">
-    <div class="bg-decoration"></div>
+    <div class="bg-image"></div>
+    <div class="overlay"></div>
     <div class="shine"></div>
     
     <div class="content">
-      <!-- بخش بالا -->
+      <!-- عنوان -->
       <div class="header">
-        <h1 class="title">دعوت‌نامه عروسی</h1>
+        <h1 class="title">✨ دعوت‌نامه عروسی ✨</h1>
         <p class="subtitle">افتخار دعوت شما را داریم</p>
       </div>
       
-      <!-- بخش وسط -->
-      <div class="middle">
-        <div class="couple-images">
-          <div class="image-container">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 300'%3E%3Crect fill='%23d4a574' width='200' height='300'/%3E%3Ctext x='50%' y='50%' text-anchor='middle' dy='.3em' font-size='24' fill='%238b6f47' font-weight='bold'%3E%3D%3D%3E%3C/text%3E%3Ctext x='50%' y='65%' text-anchor='middle' dy='.3em' font-size='14' fill='%235a3d23'%3Eمحمد سجاد%3C/text%3E%3C/svg%3E" alt="محمد سجاد">
+      <!-- نام‌ها -->
+      <div class="names">
+        <div class="groom">محمد سجاد</div>
+        <div class="and">&</div>
+        <div class="bride">زهرا</div>
+      </div>
+      
+      <div class="decoration">💐 🌹 💍 🌹 💐</div>
+      
+      <!-- اطلاعات -->
+      <div class="details">
+        <div class="detail-row">
+          <div class="detail-item">
+            <span class="detail-label">📅 تاریخ</span>
+            <span class="detail-value">یکشنبه ۱۴۰۵/۰۷/۰۲</span>
           </div>
-          <div class="decoration">💐</div>
-          <div class="image-container">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 300'%3E%3Crect fill='%23f0e5d8' width='200' height='300'/%3E%3Ctext x='50%' y='50%' text-anchor='middle' dy='.3em' font-size='24' fill='%23c17a6f' font-weight='bold'%3E%3D%3D%3E%3C/text%3E%3Ctext x='50%' y='65%' text-anchor='middle' dy='.3em' font-size='14' fill='%235a3d23'%3Eزهرا%3C/text%3E%3C/svg%3E" alt="زهرا">
+          <div class="detail-item">
+            <span class="detail-label">⏰ ساعت</span>
+            <span class="detail-value">۷:۳۰ شب تا پاسی شب</span>
           </div>
-        </div>
-        
-        <div class="names">
-          <div class="groom">محمد سجاد</div>
-          <div class="and">&</div>
-          <div class="bride">زهرا</div>
+          <div class="detail-item">
+            <span class="detail-label">🍇 برنامه</span>
+            <span class="detail-value">میوه، شیرینی و شام</span>
+          </div>
         </div>
       </div>
       
-      <!-- بخش پایین -->
-      <div class="footer">
-        <div class="details">
-          <div class="detail-row">
-            <div class="detail-item">
-              <span class="detail-label">📅 تاریخ</span>
-              <span class="detail-value">یکشنبه ۱۴۰۵/۰۷/۰۲</span>
-            </div>
-            <div class="detail-item">
-              <span class="detail-label">⏰ ساعت</span>
-              <span class="detail-value">۷:۳۰ شب تا پاسی شب</span>
-            </div>
-            <div class="detail-item">
-              <span class="detail-label">🍇 برنامه</span>
-              <span class="detail-value">میوه، شیرینی و شام</span>
-            </div>
-          </div>
-        </div>
-        
-        <p class="message">❤️ حضور و دعای شما برای ما بسیار گرامی است ❤️</p>
-      </div>
+      <p class="footer-msg">❤️ حضور و دعای شما برای ما بسیار گرامی است ❤️</p>
     </div>
     
     <div class="hint">سجاد و زهرا · ۱۴۰۵/۰۷/۰۲</div>
