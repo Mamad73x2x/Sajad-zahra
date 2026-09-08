@@ -17,13 +17,15 @@ body{
 }
 
 .container{
-  width:100vw;
-  height:100vh;
+  width:100%;
+  height:100%;
   display:flex;
   align-items:center;
   justify-content:center;
   position:relative;
   overflow:hidden;
+  padding:0;
+  margin:0;
 }
 
 .image-frame{
@@ -38,16 +40,31 @@ body{
 }
 
 .image-frame img{
-  width:100%;
-  height:100%;
+  width:auto;
+  height:auto;
+  max-width:100%;
+  max-height:100%;
   object-fit:contain;
   display:block;
+  filter:brightness(1.1) contrast(1.15);
 }
 
-/* موبایل */
+/* موبایل - بزرگ‌تر */
 @media (max-width:768px){
   .image-frame img{
+    width:100%;
+    height:100%;
     object-fit:cover;
+    filter:brightness(1.2) contrast(1.2);
+  }
+}
+
+@media (max-width:480px){
+  .image-frame img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    filter:brightness(1.25) contrast(1.25);
   }
 }
 </style>
@@ -55,7 +72,7 @@ body{
 <body>
   <div class="container">
     <div class="image-frame">
-      <img src="https://raw.githubusercontent.com/Mamad73x2x/Sajad-zahra/main/file_00000000ca7c822fa60005dc757bcab8.png" alt="دعوت‌نامه عروسی">
+      <img src="https://raw.githubusercontent.com/Mamad73x2x/Sajad-zahra/main/file_00000000ca7c822fa60005dc757bcab8.png?t=1" alt="دعوت‌نامه عروسی">
     </div>
   </div>
 </body>
